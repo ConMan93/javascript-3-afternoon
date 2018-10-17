@@ -79,7 +79,7 @@ describe('map2', ()=>{
     })
     it('should have the correct prices', ()=>{
       for (let i = 0; i < orders.length; i++) {
-        const answer = orders[i].price * (1 + orders[i].tax);
+        const answer = (Math.round(orders[i].price * (1 + orders[i].tax)*1000) / 1000);
         expect(orderTotals[i]).toBe(answer, `Expected orderTotals index ${i} to be ${answer}, got ${orderTotals[i]}`)
         if (orderTotals[i] != answer) {
           break;
